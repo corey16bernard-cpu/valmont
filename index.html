@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Valmont Josserand</title>
+<meta name="description" content="Valmont, casa relojera francesa. La Josserand: automático de corazón abierto, $6,999 MXN o 12 meses sin intereses. Proyecto universitario, marca ficticia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@400;500&display=swap">
+<style>
+/* Layout: maison-style white canvas, centered editorial captions under full-bleed films, product tiles on warm grey, uppercase tracked sans for every control. */
+:root {
+  --bg: #FFFFFF;
+  --tile: #F5F3F0;     /* warm grey product tile */
+  --fg: #111111;
+  --muted: #6B6661;
+  --hair: #E4E0DB;
+  --accent: #9A5236;   /* Valmont rose gold, used only for small details */
+  --btn: #111111; --btn-fg: #FFFFFF;
+  --over: rgba(0,0,0,.28);
+  --seg-1: #111111; --seg-2: #8C857E; --seg-3: #BDB6AE; --seg-4: #9A5236; --seg-5: #DCD6CF;
+  --serif: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --sans: "Jost", "Futura", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --gutter: clamp(16px, 4vw, 56px);
+  --section: clamp(64px, 8vw, 120px);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121110; --tile: #1C1A18; --fg: #F2EFEA; --muted: #ADA59C; --hair: #2F2B28; --accent: #DDA27F;
+    --btn: #F2EFEA; --btn-fg: #121110; --over: rgba(0,0,0,.4);
+    --seg-1: #F2EFEA; --seg-2: #A39A91; --seg-3: #6C645D; --seg-4: #DDA27F; --seg-5: #3A3531;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121110; --tile: #1C1A18; --fg: #F2EFEA; --muted: #ADA59C; --hair: #2F2B28; --accent: #DDA27F;
+  --btn: #F2EFEA; --btn-fg: #121110; --over: rgba(0,0,0,.4);
+  --seg-1: #F2EFEA; --seg-2: #A39A91; --seg-3: #6C645D; --seg-4: #DDA27F; --seg-5: #3A3531;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+[tabindex="-1"]:focus { outline: none; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 1rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+img, svg, video { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 1px solid var(--fg); outline-offset: 4px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--fg); color: var(--bg); padding: 10px 14px; z-index: 60; }
+.skip:focus { left: 8px; }
+.wrap { padding-inline: var(--gutter); max-width: 1440px; margin-inline: auto; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 300; line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: 0; }
+h2 { font-size: clamp(2rem, 3.6vw, 3rem); }
+h3 { font-size: 1.6rem; font-weight: 400; }
+p { margin: 0; text-wrap: pretty; }
+.caps { font-family: var(--sans); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; }
+.muted { color: var(--muted); }
+.ph { font-size: 0.9em; color: var(--accent); white-space: nowrap; }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+.center { text-align: center; }
+.stack { display: grid; gap: 18px; justify-items: center; text-align: center; }
+.measure { max-width: 56ch; }
+
+/* Controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 28px; border: 1px solid var(--btn);
+  background: var(--btn); color: var(--btn-fg); font: 500 0.72rem/1 var(--sans); letter-spacing: 0.18em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer; border-radius: 0; transition: background-color .25s, color .25s; }
+.btn:hover { background: transparent; color: var(--fg); }
+.btn.line { background: transparent; color: var(--fg); }
+.btn.line:hover { background: var(--btn); color: var(--btn-fg); }
+.link { display: inline-flex; align-items: center; min-height: 44px; font: 500 0.72rem/1 var(--sans); letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--fg); text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 1px; background: none; border: 0; padding: 0; cursor: pointer; }
+.link:hover { text-decoration-color: var(--accent); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.note-live { font-size: 0.86rem; color: var(--muted); min-height: 1.3em; }
+
+/* Header */
+.notice { background: var(--fg); color: var(--bg); text-align: center; padding: 8px 16px; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: var(--bg); border-bottom: 1px solid var(--hair); }
+.top .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 76px; gap: 16px; }
+.top nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.top nav a, .top .side a, .top .side button { font: 500 0.7rem/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; color: var(--fg); background: none; border: 0; padding: 0; cursor: pointer; }
+.top nav a:hover, .top .side a:hover { text-decoration: underline; text-underline-offset: 6px; }
+.top nav { grid-column: 1; }
+.logo { display: block; justify-self: center; min-height: 44px; grid-column: 2; }
+.logo img { width: clamp(118px, 12vw, 150px); height: auto; }
+.top .side { grid-column: 3; justify-self: end; display: flex; gap: 24px; align-items: center; }
+@media (max-width: 900px) { .notice { font-size: 0.6rem; letter-spacing: 0.1em; } .top nav { display: none; } .top .side .opt { display: none; } .top .wrap { min-height: 64px; } }
+
+/* Films */
+.film { position: relative; margin: 0; background: var(--tile); overflow: hidden; }
+.film video, .film img { width: 100%; height: 100%; object-fit: cover; }
+.film.wide { aspect-ratio: 16 / 7; }
+@media (max-width: 760px) { .film.wide { aspect-ratio: 4 / 5; } }
+.film .ctl { position: absolute; right: 16px; bottom: 16px; min-height: 44px; min-width: 44px; padding: 0 14px; background: rgba(0,0,0,.42); color: #fff; border: 0;
+  font: 500 0.66rem/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; }
+.film .ctl:focus-visible { outline: 1px solid #fff; outline-offset: 2px; }
+.film figcaption.credit { position: absolute; left: 16px; bottom: 16px; max-width: calc(100% - 150px); color: #fff; background: rgba(0,0,0,.45); padding: 5px 9px; font-size: 0.68rem; line-height: 1.4; letter-spacing: 0.04em; }
+.under { padding-block: clamp(32px, 4vw, 56px) var(--section); }
+.under h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); }
+.under .lede { font-family: var(--serif); font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.4; max-width: 34ch; }
+
+/* Sections */
+.section { padding-block: var(--section); }
+.section + .section { border-top: 1px solid var(--hair); }
+.head { display: grid; gap: 16px; justify-items: center; text-align: center; margin-bottom: clamp(40px, 5vw, 72px); }
+.head p { max-width: 58ch; color: var(--muted); }
+
+/* Price */
+.price-grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(32px, 5vw, 80px); align-items: start; }
+@media (max-width: 860px) { .price-grid { grid-template-columns: 1fr; } }
+.scale .row { display: grid; gap: 10px; }
+.scale .row + .row { margin-top: 28px; }
+.scale .row-label { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 0.85rem; }
+.bar { display: flex; height: 40px; width: calc(var(--w) * 100%); }
+.bar .seg { flex: var(--v) 1 0; min-width: 3px; background: var(--c); border-right: 1px solid var(--bg); transition: opacity .2s; cursor: pointer; }
+.bar .seg:last-child { border-right: 0; }
+.bar[data-active] .seg { opacity: .25; }
+.bar[data-active] .seg.on { opacity: 1; }
+.trad { position: relative; height: 18px; }
+.trad span { position: absolute; top: 0; bottom: 0; }
+.trad .solid { left: 0; width: calc(8940 / 12000 * 100%); background: var(--seg-3); }
+.trad .range { left: calc(8940 / 12000 * 100%); width: calc(2980 / 12000 * 100%); background: repeating-linear-gradient(135deg, var(--seg-3) 0 1px, transparent 1px 6px); }
+.ruler { position: relative; height: 30px; margin-top: 14px; border-top: 1px solid var(--fg); }
+.ruler i { position: absolute; top: 0; width: 1px; height: 6px; background: var(--fg); }
+.ruler i.major { height: 11px; }
+.ruler b { position: absolute; top: 14px; transform: translateX(-50%); font: 400 0.72rem var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
+.ruler b:first-of-type { transform: none; }
+.ruler b:last-of-type { transform: translateX(-100%); }
+.legend { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--fg); }
+.legend li { border-bottom: 1px solid var(--hair); }
+.legend button { all: unset; box-sizing: border-box; display: grid; grid-template-columns: 12px 1fr auto; gap: 14px; align-items: center; width: 100%; min-height: 52px; padding: 8px 2px; cursor: pointer; font: 400 0.95rem var(--sans); color: var(--fg); }
+.legend button:focus-visible { outline: 1px solid var(--fg); outline-offset: -1px; }
+.legend button[aria-pressed="true"] { font-weight: 500; }
+.legend .sw { width: 12px; height: 12px; background: var(--c); }
+.legend .amt { font-variant-numeric: tabular-nums; }
+.detail { margin-top: 22px; min-height: 6em; }
+.detail .big { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1; font-weight: 300; }
+.detail p { color: var(--muted); margin-top: 8px; max-width: 46ch; }
+.hyp { margin-top: 26px; font-size: 0.82rem; color: var(--muted); max-width: 62ch; }
+
+/* Anatomy */
+.anat { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
+@media (max-width: 960px) { .anat { grid-template-columns: 1fr; } }
+.photo { position: relative; margin: 0; background: var(--tile); }
+.photo img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.spot { position: absolute; left: var(--x); top: var(--y); width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%;
+  border: 1px solid #fff; background: rgba(0,0,0,.25); transition: transform .25s, background-color .25s; pointer-events: none; }
+.spot.on { transform: scale(1.5); background: #fff; }
+.parts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--fg); }
+.parts li { border-bottom: 1px solid var(--hair); }
+.parts button { all: unset; box-sizing: border-box; width: 100%; min-height: 54px; padding: 14px 2px; cursor: pointer; display: grid; gap: 6px; }
+.parts button:focus-visible { outline: 1px solid var(--fg); outline-offset: -1px; }
+.parts .t { font: 500 0.74rem/1.4 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg); }
+.parts .d { font-size: 0.95rem; color: var(--muted); display: none; }
+.parts button[aria-expanded="true"] .d { display: block; }
+
+/* Editorial split */
+.split { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+.split .film { aspect-ratio: auto; min-height: 100%; }
+.split .film video, .split .film img { aspect-ratio: 1; }
+.split .copy { padding: clamp(40px, 7vw, 120px) var(--gutter); display: grid; gap: 22px; align-content: center; justify-items: start; }
+.split .copy p { color: var(--muted); max-width: 52ch; }
+@media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+.sheet { margin: 6px 0 0; border-top: 1px solid var(--fg); width: 100%; max-width: 52ch; }
+.sheet div { display: grid; grid-template-columns: 12rem 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--hair); font-size: 0.9rem; }
+.sheet dt { font: 500 0.68rem/1.9 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.sheet dd { margin: 0; }
+@media (max-width: 480px) { .sheet div { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Services */
+.services { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(24px, 3vw, 48px); }
+.services > div { display: grid; gap: 10px; align-content: start; text-align: center; justify-items: center; }
+.services svg { width: 32px; height: 32px; color: var(--fg); }
+.services p { color: var(--muted); font-size: 0.92rem; max-width: 30ch; }
+@media (max-width: 860px) { .services { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .services { grid-template-columns: 1fr; } }
+
+/* Closing */
+.closing { display: grid; justify-items: center; text-align: center; gap: 26px; }
+.closing img { width: clamp(110px, 12vw, 160px); height: auto; }
+.closing .promise { font-family: var(--serif); font-weight: 300; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.25; max-width: 30ch; }
+
+footer { border-top: 1px solid var(--hair); padding-block: 40px 56px; font-size: 0.82rem; color: var(--muted); }
+footer .wrap { display: grid; gap: 8px; justify-items: center; text-align: center; }
+footer strong { color: var(--fg); font-weight: 500; }
+.textlink { background: none; border: 0; padding: 0; min-height: 44px; font: inherit; color: var(--fg); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* Balance wheel (landing) */
+.wheel { color: var(--accent); overflow: visible; width: min(100%, 360px); }
+.wheel .rim, .wheel .arm, .wheel .hub, .wheel .spring { fill: none; stroke: currentColor; }
+.wheel .ticks line { stroke: var(--hair); }
+.wheel .jewel { fill: #A3263A; }
+.wheel .swing { transform-origin: 160px 160px; animation: swing 1.2s cubic-bezier(.42,0,.58,1) infinite alternate; }
+.wheel .breathe { transform-origin: 160px 160px; animation: breathe 1.2s cubic-bezier(.42,0,.58,1) infinite alternate; }
+@keyframes swing { from { transform: rotate(-200deg); } to { transform: rotate(200deg); } }
+@keyframes breathe { from { transform: rotate(-38deg) scale(.985); } to { transform: rotate(38deg) scale(1.015); } }
+@media (prefers-reduced-motion: reduce) { .wheel .swing, .wheel .breathe { animation: none; } }
+
+/* ---------- Landing (product page) ---------- */
+.crumbs { padding-block: 18px; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.crumbs a { text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+.pdp { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(24px, 4vw, 72px); align-items: start; padding-bottom: var(--section); }
+.gallery { display: grid; gap: 8px; }
+.gallery figure { margin: 0; background: var(--tile); }
+.gallery img, .gallery video { width: 100%; height: auto; }
+.gallery .g-wheel { display: grid; place-items: center; aspect-ratio: 16 / 10; }
+.gallery .g-3d .to-viewer { aspect-ratio: 16 / 11; }
+.buy { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 96px); display: grid; gap: 14px; }
+.buy h1 { font-size: clamp(2.4rem, 4vw, 3.4rem); }
+.buy .sub { color: var(--muted); }
+.monthly { font-family: var(--serif); font-size: clamp(1.6rem, 2.4vw, 2.1rem); line-height: 1.15; font-weight: 400; }
+.full { color: var(--muted); font-size: 0.92rem; margin-top: -8px; }
+.buy .btn-row { display: grid; gap: 10px; justify-content: stretch; }
+.buy .btn { width: 100%; }
+.assure { font-size: 0.86rem; color: var(--muted); }
+.acc details { border-bottom: 1px solid var(--hair); }
+.acc details:first-child { border-top: 1px solid var(--fg); }
+.acc summary { list-style: none; cursor: pointer; min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  font: 500 0.72rem/1.4 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; padding: 8px 0; }
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary::after { content: "+"; font-size: 1.1rem; font-weight: 400; letter-spacing: 0; flex: none; }
+.acc details[open] summary::after { content: "−"; }
+.acc .a { padding: 0 0 20px; color: var(--muted); display: grid; gap: 10px; max-width: 62ch; font-size: 0.95rem; }
+@media (max-width: 860px) {
+  .pdp { grid-template-columns: 1fr; }
+  .buy { position: static; }
+  .gallery .g-more { display: none; }
+  .gallery { margin-inline: calc(var(--gutter) * -1); }
+  .crumbs, .buy > .caps { display: none; }
+  .gallery { margin-top: 0; }
+  .buy { gap: 8px; }
+  .buy .sub { font-size: 0.92rem; line-height: 1.5; }
+  .buy h1 { font-size: 2.3rem; }
+  .monthly { font-size: 1.5rem; }
+}
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
+@media (max-width: 860px) { .two { grid-template-columns: 1fr; } }
+.wrist svg { width: 100%; height: auto; }
+.wrist .band-shape { fill: var(--tile); stroke: var(--hair); }
+.wrist .case { fill: var(--bg); stroke: var(--fg); stroke-width: 1.5; }
+.wrist .dial-t { stroke: var(--fg); }
+.wrist .mm line { stroke: var(--fg); }
+.wrist .mm text { fill: var(--muted); font: 400 10px var(--sans); }
+.wrist .dim { stroke: var(--accent); }
+.wrist .dim-t { fill: var(--accent); font: 500 11px var(--sans); }
+.range-row { display: grid; gap: 6px; margin-top: 16px; }
+.range-row label { font: 500 0.72rem/1.6 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; }
+input[type="range"] { width: 100%; min-height: 44px; accent-color: var(--fg); }
+.read { color: var(--muted); font-size: 0.92rem; }
+.read strong { color: var(--fg); font-weight: 500; }
+.magnet { background: var(--tile); padding: clamp(24px, 4vw, 48px); display: grid; gap: 16px; }
+.magnet p { color: var(--muted); }
+.field { display: grid; gap: 6px; }
+.field label { font: 500 0.68rem/1.6 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; }
+.field input, .field textarea { font: 400 1rem var(--sans); color: var(--fg); background: var(--bg); border: 0; border-bottom: 1px solid var(--fg); border-radius: 0; min-height: 48px; padding: 10px 2px; width: 100%; }
+.field textarea { border: 1px solid var(--hair); padding: 10px 12px; min-height: 96px; resize: vertical; }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 560px) { .fields { grid-template-columns: 1fr; } }
+.summary { border-top: 1px solid var(--fg); margin: 0; }
+.summary div { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--hair); font-size: 0.95rem; }
+.summary dt { font: 500 0.68rem/2 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.summary dd { margin: 0; text-align: right; }
+.switch { display: flex; align-items: center; gap: 12px; min-height: 48px; cursor: pointer; font: 500 0.72rem/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; }
+.switch input { appearance: none; width: 42px; height: 24px; border-radius: 12px; background: var(--hair); position: relative; margin: 0; cursor: pointer; transition: background .2s; flex: none; }
+.switch input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--bg); transition: transform .2s; }
+.switch input:checked { background: var(--fg); }
+.switch input:checked::after { transform: translateX(18px); }
+.gift { display: grid; gap: 10px; margin-top: 6px; }
+.order-cta { display: grid; gap: 10px; margin-top: 22px; }
+.sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--bg); border-top: 1px solid var(--hair);
+  padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px)); display: none; align-items: center; justify-content: space-between; gap: 12px; }
+.sticky .m { font-family: var(--serif); font-size: 1.2rem; line-height: 1.1; }
+.sticky .m small { display: block; font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 860px) { .sticky.show { display: flex; } body.has-sticky footer { padding-bottom: 104px; } }
+dialog { border: 0; background: var(--bg); color: var(--fg); padding: clamp(28px, 5vw, 48px); max-width: min(520px, calc(100vw - 32px)); text-align: center; }
+dialog::backdrop { background: rgba(0, 0, 0, .5); }
+dialog h2 { font-size: 2rem; margin-bottom: 12px; }
+dialog p { color: var(--muted); margin-bottom: 26px; }
+dialog.doc { text-align: left; max-width: min(640px, calc(100vw - 32px)); max-height: calc(100vh - 48px); overflow: auto; }
+dialog.doc h2 { font-size: 1.8rem; }
+dialog.doc h3 { font: 500 0.72rem/1.6 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; margin: 18px 0 4px; }
+dialog.doc p { margin-bottom: 8px; font-size: 0.92rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="top">
+  <p class="notice">Proyecto universitario — Valmont es una marca ficticia</p>
+  <div class="wrap">
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#josserand">La Josserand</a></li>
+        <li><a href="#precio">El precio</a></li>
+        <li><a href="#papantla">Papantla</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+      </ul>
+    </nav>
+    <a class="logo" href="#inicio" aria-label="Valmont, inicio"><img src="img/firma.webp" alt="Valmont" width="260" height="91"></a>
+    <div class="side">
+      <button class="opt" type="button" data-event="whatsapp_click" data-note="n-top">Asesor</button>
+      <a href="#josserand" data-event="nav_landing">Reservar</a>
+    </div>
+  </div>
+  <p class="note-live wrap" id="n-top" aria-live="polite" style="min-height:0"></p>
+</header>
+
+<main id="contenido" tabindex="-1">
+<!-- ======================= BRAND SITE ======================= -->
+<div id="brand-view">
+  <div>
+    <section id="inicio" aria-labelledby="t-hero">
+      <figure class="film wide" data-film>
+        <video muted loop playsinline preload="metadata" poster="img/poster-iris-ancho.webp" data-poster-tall="img/poster-iris-alto.webp" aria-label="Un iris morado florece entre columnas de mármol.">
+          <source src="video/iris-alto.webm" type="video/webm" media="(max-width: 760px)">
+          <source src="video/iris-alto.mp4" type="video/mp4" media="(max-width: 760px)">
+          <source src="video/iris-ancho.webm" type="video/webm">
+          <source src="video/iris-ancho.mp4" type="video/mp4">
+        </video>
+        <button class="ctl" type="button" data-toggle>Pausar</button>
+        <figcaption class="credit">Video: Pexels</figcaption>
+      </figure>
+      <div class="wrap under stack">
+        <p class="caps muted">La Josserand</p>
+        <h1 id="t-hero">Hecha para durar cincuenta años</h1>
+        <p class="lede">al precio que costaría si nadie se quedara con una parte entre el taller y tú.</p>
+        <div class="btn-row"><a class="link" href="#josserand" data-event="hero_cta">Descubrir la Josserand</a></div>
+      </div>
+    </section>
+
+    <section class="section" id="precio" aria-labelledby="t-precio" style="border-top:1px solid var(--hair)">
+      <div class="wrap">
+        <div class="head">
+          <p class="caps">Transparencia</p>
+          <h2 id="t-precio">El precio, al descubierto</h2>
+          <p>Cada Josserand cuesta $6,999 MXN, IVA incluido. Publicamos cómo se reparte cada peso, para que puedas compararlo con los catálogos de componentes y para que no podamos subir nuestro margen en silencio.</p>
+        </div>
+        <div class="price-grid">
+          <div>
+            <div class="scale" data-scale="full"></div>
+            <p class="hyp">Hipótesis de trabajo: cifras de planeación pendientes de cotizaciones de proveedores. La barra rayada es una ilustración: el mismo costo de fabricación multiplicado por 3 o 4, como en la distribución tradicional (sin IVA).</p>
+          </div>
+          <div>
+            <ul class="legend" data-legend="full" aria-label="Partidas del precio"></ul>
+            <div class="detail" data-detail="full" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="anatomia" aria-labelledby="t-anat">
+      <div class="wrap">
+        <div class="head">
+          <p class="caps">Un solo modelo</p>
+          <h2 id="t-anat">La Josserand</h2>
+          <p>Automático, tres agujas, con el corazón abierto para ver latir el volante. Movimiento de fabricación japonesa: fiable, reparable y revisable durante décadas.</p>
+        </div>
+        <div class="anat">
+          <figure class="photo">
+            <img src="img/josserand-1280.webp" srcset="img/josserand-640.webp 640w, img/josserand-1280.webp 1280w" sizes="(max-width: 960px) 100vw, 58vw" width="1280" height="720" alt="La Josserand: caja oro rosa, carátula blanco roto granulada y ventana redonda que deja ver el volante." loading="lazy">
+            <span class="spot" data-spot="0" style="--x:34%;--y:47%"></span>
+            <span class="spot" data-spot="1" style="--x:18%;--y:62%"></span>
+            <span class="spot" data-spot="2" style="--x:62%;--y:22%"></span>
+            <span class="spot" data-spot="3" style="--x:81%;--y:45%"></span>
+            <span class="spot" data-spot="4" style="--x:85%;--y:73%"></span>
+            <span class="spot" data-spot="5" style="--x:13%;--y:91%"></span>
+          </figure>
+          <ul class="parts" aria-label="Detalles de la Josserand">
+            <li><button type="button" aria-expanded="true" data-part="0"><span class="t">Corazón abierto</span><span class="d">Una ventana en la carátula deja ver el volante, la espiral y el escape en movimiento.</span></button></li>
+            <li><button type="button" aria-expanded="false" data-part="1"><span class="t">Oro rosa sobre acero 316L</span><span class="d">Caja de acero inoxidable 316L con tratamiento PVD color oro rosa.</span></button></li>
+            <li><button type="button" aria-expanded="false" data-part="2"><span class="t">Zafiro por ambos lados</span><span class="d">Cristal de zafiro al frente y fondo atornillado de zafiro: el movimiento también se ve por detrás.</span></button></li>
+            <li><button type="button" aria-expanded="false" data-part="3"><span class="t">40 mm × 7.7 mm</span><span class="d">Caja de 40 mm de diámetro y 7.7 mm de grosor.</span></button></li>
+            <li><button type="button" aria-expanded="false" data-part="4"><span class="t">Hermético a 50 m</span><span class="d">Resistente al agua hasta 50 metros.</span></button></li>
+            <li><button type="button" aria-expanded="false" data-part="5"><span class="t">Correa de cambio rápido</span><span class="d">Piel café, intercambiable sin herramientas.</span></button></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="t-oficio">
+      <figure class="film wide" data-film>
+        <video muted loop playsinline preload="none" poster="img/poster-oficio.webp" aria-label="Manos de un relojero ajustando un movimiento mecánico sobre su banco de trabajo.">
+          <source src="video/oficio.webm" type="video/webm">
+          <source src="video/oficio.mp4" type="video/mp4">
+        </video>
+        <button class="ctl" type="button" data-toggle>Pausar</button>
+        <figcaption class="credit">Video: Tima Miroshnichenko, Pexels</figcaption>
+      </figure>
+      <div class="wrap under stack">
+        <p class="caps muted">Mecánica</p>
+        <h2 id="t-oficio">Un corazón que se repara</h2>
+        <p class="muted measure">Un reloj mecánico no caduca como un aparato electrónico. Se revisa, se ajusta y vuelve a latir. Por eso la garantía de la Josserand incluye la revisión.</p>
+        <a class="link" href="#servicios">Ver los servicios</a>
+      </div>
+    </section>
+
+    <section aria-label="Textura del estuche" style="border-top:1px solid var(--hair)">
+      <figure class="film wide" data-film>
+        <video muted loop playsinline preload="none" poster="img/poster-seda.webp" aria-label="Satén color crema ondulando lentamente.">
+          <source src="video/seda.webm" type="video/webm">
+          <source src="video/seda.mp4" type="video/mp4">
+        </video>
+        <button class="ctl" type="button" data-toggle>Pausar</button>
+        <figcaption class="credit">Video: Artem Podrez, Pexels</figcaption>
+      </figure>
+    </section>
+
+    <section id="papantla" class="split" aria-labelledby="t-pap" style="border-top:1px solid var(--hair)">
+      <figure class="film still">
+        <img src="img/estuche-1000.webp" srcset="img/estuche-600.webp 600w, img/estuche-1000.webp 1000w" sizes="(max-width: 860px) 100vw, 50vw" width="1000" height="1000" alt="Estuche de la Josserand forrado de gamuza crema, con el iris y el nombre Josserand en oro rosa." loading="lazy">
+      </figure>
+      <div class="copy">
+        <p class="caps muted">El estuche</p>
+        <h2 id="t-pap">De Papantla a tu muñeca</h2>
+        <p>El estuche de la Josserand está forrado de gamuza color crema. Su espuma lleva un acorde de vainilla y madera que se libera al abrirlo.</p>
+        <p>La vainilla viene de la región de Papantla, en Veracruz, donde la orquídea <i>Vanilla planifolia</i> es nativa y se cultiva desde la época prehispánica. Nombramos la región, la especie y al productor para que cualquiera pueda verificarlo. Valmont es una casa francesa y lo dice: busca cada ingrediente donde crece.</p>
+        <dl class="sheet" aria-label="Ficha de origen de la vainilla">
+          <div><dt>Especie</dt><dd><i>Vanilla planifolia</i></dd></div>
+          <div><dt>Región</dt><dd>Papantla, Veracruz, México</dd></div>
+          <div><dt>Uso</dt><dd>Acorde de vainilla y madera en la espuma del estuche</dd></div>
+          <div><dt>Productor</dt><dd>Familia Olmedo Santiago, Papantla</dd></div>
+          <div><dt>Precio al productor</dt><dd class="num">$4,800 MXN por kilo de vainilla curada</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="servicios" aria-labelledby="t-serv" style="border-top:1px solid var(--hair)">
+      <div class="wrap">
+        <div class="head">
+          <p class="caps">Servicios</p>
+          <h2 id="t-serv">Cinco años, con revisión incluida</h2>
+        </div>
+        <div class="services">
+          <div>
+            <svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><path d="M16 3 5 7v8c0 7 5 12 11 14 6-2 11-7 11-14V7z"/><path d="m11 16 4 4 7-8"/></svg>
+            <h3 class="caps" style="font-size:.74rem">Garantía de 5 años</h3>
+            <p>Cubrimos el movimiento y la caja durante cinco años desde la entrega.</p>
+          </div>
+          <div>
+            <svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="4"/><path d="M16 4v4M16 24v4M4 16h4M24 16h4"/></svg>
+            <h3 class="caps" style="font-size:.74rem">Revisión incluida</h3>
+            <p>La revisión corre por nuestra cuenta. Centro de servicio en México: Taller Valmont, Calle Lope de Vega 128, Polanco, Ciudad de México.</p>
+          </div>
+          <div>
+            <svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9h16v13H3zM19 13h6l4 5v4H19z"/><circle cx="9" cy="24" r="2.5"/><circle cx="24" cy="24" r="2.5"/></svg>
+            <h3 class="caps" style="font-size:.74rem">Envío con seguimiento</h3>
+            <p>Sabes dónde está tu reloj y qué día llega: de 3 a 5 días hábiles, sin costo.</p>
+          </div>
+          <div>
+            <svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><path d="M8 12h14a6 6 0 0 1 0 12h-6"/><path d="m12 7-5 5 5 5"/></svg>
+            <h3 class="caps" style="font-size:.74rem">Devoluciones</h3>
+            <p>30 días desde la entrega para devolverla sin uso y en su estuche. La devolución es gratuita.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="t-close" style="border-top:1px solid var(--hair)">
+      <div class="wrap closing">
+        <img src="img/emblema.webp" width="216" height="350" alt="Emblema de Valmont: un iris dorado sobre la firma Valmont.">
+        <h2 id="t-close" class="caps" style="font-size:.72rem">Valmont, casa relojera francesa</h2>
+        <p class="promise">Hecha para durar cincuenta años, al precio que costaría si nadie se quedara con una parte entre el taller y tú.</p>
+        <div class="btn-row">
+          <a class="btn" href="#josserand" data-event="closing_cta">Descubrir la Josserand</a>
+          <button class="btn line" type="button" data-event="whatsapp_click" data-note="n-close">Hablar con un asesor</button>
+        </div>
+        <p class="note-live" id="n-close" aria-live="polite"></p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ======================= LANDING (product page) ======================= -->
+<div id="landing-view" hidden>
+  <div id="contenido-l" tabindex="-1">
+    <nav class="wrap crumbs" aria-label="Ruta"><a href="#inicio">Valmont</a> / <span aria-current="page">Josserand</span></nav>
+    <section class="wrap pdp" aria-labelledby="t-l">
+      <div class="gallery">
+        <figure><img src="img/josserand-1280.webp" srcset="img/josserand-640.webp 640w, img/josserand-1280.webp 1280w" sizes="(max-width: 860px) 100vw, 58vw" width="1280" height="720" alt="La Josserand en oro rosa, con la ventana del corazón abierto a la izquierda de la carátula." fetchpriority="high"></figure>
+        <figure class="g-3d"><div id="viewer-site"></div></figure>
+        <figure class="g-more"><img src="img/estuche-1000.webp" srcset="img/estuche-600.webp 600w, img/estuche-1000.webp 1000w" sizes="58vw" width="1000" height="1000" alt="Estuche de gamuza crema con el iris y el nombre Josserand en oro rosa." loading="lazy"></figure>
+      </div>
+      <div class="buy">
+        <p class="caps muted">Valmont</p>
+        <h1 id="t-l" tabindex="-1">Josserand</h1>
+        <p class="sub">Automático de corazón abierto, 40 mm, acero 316L oro rosa, zafiro por ambos lados.</p>
+        <p class="monthly num">12 meses sin intereses de $583.25</p>
+        <p class="full num">$6,999 MXN, IVA incluido</p>
+        <div class="btn-row" id="hero-ctas">
+          <button class="btn" type="button" data-event="begin_checkout" data-reserve>Reservar la mía</button>
+          <button class="btn line" type="button" data-event="whatsapp_click" data-note="n-hero">Hablar con un asesor por WhatsApp</button>
+        </div>
+        <p class="note-live" id="n-hero" aria-live="polite"></p>
+        <p class="assure">Garantía de 5 años con revisión incluida.</p>
+        <div class="acc">
+          <details><summary>Descripción</summary><div class="a"><p>Reloj automático de tres agujas con corazón abierto. Carátula blanco roto granulada con índices de bastón y un 12 aplicados, agujas afiladas y la firma Valmont, todo en oro rosa.</p></div></details>
+          <details><summary>Medidas y materiales</summary><div class="a"><p>Caja de 40 mm de diámetro y 7.7 mm de grosor, en acero 316L con PVD oro rosa. Cristal y fondo atornillado de zafiro. Hermético a 50 m. Correa de piel café de cambio rápido. Movimiento automático japonés.</p></div></details>
+          <details><summary>Estuche</summary><div class="a"><p>Gamuza crema con el iris en oro rosa. La espuma lleva un acorde de vainilla de Papantla y madera.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="t-latir" style="border-top:1px solid var(--hair)">
+      <div class="wrap two">
+        <figure class="film" data-film style="aspect-ratio:1">
+          <video muted loop playsinline preload="none" poster="img/poster-volante.webp" aria-label="Volante de un movimiento mecánico oscilando, en macro.">
+            <source src="video/volante.webm" type="video/webm">
+            <source src="video/volante.mp4" type="video/mp4">
+          </video>
+          <button class="ctl" type="button" data-toggle>Pausar</button>
+          <figcaption class="credit">Movimiento de referencia, imagen ilustrativa. Video: Quang Viet Nguyen, Pexels</figcaption>
+        </figure>
+        <div style="display:grid;gap:18px">
+          <p class="caps muted">A cámara lenta</p>
+          <h2 id="t-latir">Mírala latir</h2>
+          <p class="muted measure">No puedes tocarla antes de comprarla, así que te mostramos cómo late un movimiento mecánico. En la Josserand, ese volante oscila sin pausa detrás de la ventana de la carátula, y por el fondo de zafiro se ve el resto del movimiento.</p>
+          <p class="muted measure">Un automático se da cuerda con el movimiento de tu muñeca. No necesita pila ni cargador, y con revisiones periódicas dura décadas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="t-muneca" style="border-top:1px solid var(--hair)">
+      <div class="wrap two" style="align-items:start">
+        <div class="wrist">
+          <p class="caps muted">Proporciones</p>
+          <h2 id="t-muneca" style="margin-top:14px">En tu muñeca</h2>
+          <p class="muted measure" style="margin-top:14px">Mide tu muñeca con una cinta flexible, justo debajo del hueso, y elige la medida para ver la proporción de una caja de 40 mm.</p>
+          <svg viewBox="0 0 340 220" role="img" aria-labelledby="wrist-desc" style="margin-top:24px"><desc id="wrist-desc">Vista superior de una muñeca con la caja de 40 mm dibujada a escala.</desc><g id="wrist-art"></g></svg>
+          <div class="range-row">
+            <label for="wrist">Contorno de tu muñeca: <span id="wrist-val" class="num">17 cm</span></label>
+            <input type="range" id="wrist" min="14" max="21" step="0.5" value="17" aria-describedby="wrist-read">
+            <p class="read" id="wrist-read"></p>
+          </div>
+        </div>
+        <div class="magnet">
+          <p class="caps">Prueba virtual en 3D</p>
+          <h3>Pruébatela en tu muñeca con la cámara</h3>
+          <p>Crea tu cuenta, confírmala con el código que te llega por WhatsApp y ve la Josserand en 3D sobre tu muñeca, a escala real.</p>
+          <div id="acc-site"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Servicios incluidos" style="border-top:1px solid var(--hair)">
+      <div class="wrap services">
+        <div><h3 class="caps" style="font-size:.74rem">Garantía de 5 años</h3><p>Con revisión incluida.</p></div>
+        <div><h3 class="caps" style="font-size:.74rem">Envío con seguimiento</h3><p>Llega en 3 a 5 días hábiles, sin costo.</p></div>
+        <div><h3 class="caps" style="font-size:.74rem">Devoluciones</h3><p>30 días para devolverla sin uso. Gratis.</p></div>
+        <div><h3 class="caps" style="font-size:.74rem">Estuche incluido</h3><p>Gamuza crema, perfumado con vainilla de Papantla.</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="t-peso" style="border-top:1px solid var(--hair)">
+      <div class="wrap">
+        <div class="head">
+          <h2 id="t-peso">Dónde va cada peso</h2>
+          <p>Un solo margen, sin importador, mayorista ni tienda. <a href="#precio">Ver el desglose completo</a></p>
+        </div>
+        <div class="scale" data-scale="mini"></div>
+        <p class="hyp">Hipótesis de trabajo, pendientes de cotizaciones de proveedores.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="t-order" style="border-top:1px solid var(--hair)">
+      <div class="wrap two" style="align-items:start">
+        <div>
+          <h2 id="t-order">Tu Josserand</h2>
+          <dl class="summary" style="margin-top:26px">
+            <div><dt>Modelo</dt><dd>Josserand, 40 mm, oro rosa</dd></div>
+            <div><dt>Pago</dt><dd class="num">12 meses sin intereses de $583.25</dd></div>
+            <div><dt>Total</dt><dd class="num">$6,999 MXN, IVA incluido</dd></div>
+            <div><dt>Incluye</dt><dd>Estuche, garantía de 5 años con revisión</dd></div>
+          </dl>
+        </div>
+        <div>
+          <label class="switch"><input type="checkbox" id="gift-toggle" role="switch" aria-controls="gift-fields">Es un regalo</label>
+          <div class="gift" id="gift-fields" hidden>
+            <div class="field"><label for="gift-msg">Mensaje para la tarjeta</label><textarea id="gift-msg" maxlength="240"></textarea></div>
+            <p class="read">La nota de empaque no mostrará el precio.</p>
+          </div>
+          <div class="order-cta">
+            <button class="btn" type="button" data-event="begin_checkout" data-reserve>Reservar la mía</button>
+            <button class="btn line" type="button" data-event="whatsapp_click" data-note="n-order">Hablar con un asesor por WhatsApp</button>
+          </div>
+          <p class="note-live" id="n-order" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="t-faq" style="border-top:1px solid var(--hair)">
+      <div class="wrap">
+        <div class="head"><h2 id="t-faq">Preguntas frecuentes</h2></div>
+        <div class="acc" style="max-width:820px;margin-inline:auto">
+          <details><summary>¿Cómo funcionan los meses sin intereses?</summary><div class="a"><p>Pagas $6,999 en 12 mensualidades de $583.25 sin intereses, con tarjetas de crédito Visa, Mastercard y American Express de bancos mexicanos.</p><p>Sin tarjeta de crédito puedes pagar de contado con tarjeta de débito o transferencia SPEI.</p></div></details>
+          <details><summary>¿Cuándo llega y cuánto cuesta el envío?</summary><div class="a"><p>Cada envío lleva seguimiento y fecha de entrega. Llega en 3 a 5 días hábiles. El envío es gratis y no pagas impuestos de importación: el reloj sale de nuestro almacén en México.</p></div></details>
+          <details><summary>¿Puedo devolverla?</summary><div class="a"><p>Sí. Tienes 30 días desde la entrega para devolverla sin uso y en su estuche, y te reembolsamos el total. La devolución es gratuita.</p></div></details>
+          <details><summary>¿Qué cubre la garantía y dónde se revisa en México?</summary><div class="a"><p>Cinco años de garantía desde la entrega, con la revisión del movimiento incluida. Centro de servicio en México: Taller Valmont, Calle Lope de Vega 128, Polanco, Ciudad de México.</p></div></details>
+          <details><summary>¿Puedo probármela antes de reservar?</summary><div class="a"><p>Sí. Crea tu cuenta, confírmala con el código que te llega por WhatsApp y pruébatela en 3D con la cámara de tu teléfono, a escala real. La imagen se procesa en tu dispositivo: no se graba ni se envía.</p></div></details>
+          <details><summary>¿Por qué un movimiento japonés en una casa francesa?</summary><div class="a"><p>Valmont diseña en Francia y elige el movimiento por su fiabilidad. Los automáticos japoneses se fabrican en serie con gran precisión, se reparan con facilidad y tienen refacciones disponibles. Estilo francés, mecánica japonesa.</p></div></details>
+        </div>
+      </div>
+    </section>
+  </div>
+  <aside class="sticky" id="sticky" aria-label="Reserva rápida">
+    <p class="m num">$583.25 al mes<small>12 meses sin intereses</small></p>
+    <button class="btn" type="button" data-event="begin_checkout" data-reserve>Reservar la mía</button>
+  </aside>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Proyecto universitario — Valmont es una marca ficticia. Este sitio no vende productos ni envía datos: tu cuenta de demostración se guarda solo en tu navegador.</strong></p>
+    <p>Valmont Horlogerie SAS, 12 rue des Iris, 25000 Besançon, Francia. En México: Valmont México, S.A. de C.V., Calle Lope de Vega 128, Polanco, 11560, Ciudad de México. Contacto: hola@valmont.example. Razón social, domicilios, productor y contactos son ficticios.</p>
+    <p>Fotografías de producto: Valmont (proyecto académico). Videos con licencia Pexels: iris entre columnas (Pexels, video 15742615), Artem Podrez (satén), Tima Miroshnichenko (relojero), Quang Viet Nguyen (movimiento, imagen ilustrativa que no corresponde a la Josserand).</p>
+    <p>Precios en MXN con IVA incluido; cifras de costo como hipótesis de trabajo. Modelo 3D de la Josserand: recreación ilustrativa. Seguimiento de la mano: MediaPipe Hands (Google, licencia Apache 2.0); 3D: three.js (licencia MIT).</p>
+    <p><button type="button" class="textlink" data-doc="privacidad">Aviso de privacidad</button></p>
+  </div>
+</footer>
+
+<dialog id="demo" aria-labelledby="demo-t">
+  <h2 id="demo-t">Demo</h2>
+  <p>Demo — proyecto universitario. Valmont es una marca ficticia; no se realizan ventas.</p>
+  <form method="dialog"><button class="btn" type="submit" autofocus>Entendido</button></form>
+</dialog>
+
+<dialog class="doc" id="doc-privacidad" aria-labelledby="dp-t">
+  <h2 id="dp-t">Aviso de privacidad</h2>
+  <p>Documento de demostración para un proyecto universitario. Redactado conforme a la estructura que pide la Ley Federal de Protección de Datos Personales en Posesión de los Particulares; debe validarse con un abogado antes de cualquier uso real.</p>
+  <h3>Responsable</h3><p>Valmont México, S.A. de C.V., Calle Lope de Vega 128, Polanco, 11560, Ciudad de México, filial de Valmont Horlogerie SAS, 12 rue des Iris, 25000 Besançon, Francia.</p>
+  <h3>Datos que recabamos</h3><p>Tu nombre y tu número de WhatsApp.</p>
+  <h3>Finalidades</h3><p>Primarias: crear tu cuenta y verificarla con un código por WhatsApp. Secundaria, solo con tu consentimiento: enviarte como máximo dos mensajes sobre la Josserand.</p>
+  <h3>Cámara</h3><p>La prueba virtual usa la cámara solo mientras la tienes abierta. La imagen se procesa en tu dispositivo; no se graba, no se guarda y no se envía.</p>
+  <h3>Transferencias</h3><p>No vendemos ni compartimos tus datos. El envío del código se hace mediante WhatsApp Business.</p>
+  <h3>Tus derechos ARCO</h3><p>Puedes acceder, rectificar, cancelar u oponerte al uso de tus datos, y revocar tu consentimiento, escribiendo a privacidad@valmont.example.</p>
+  <form method="dialog"><button class="btn" type="submit">Cerrar</button></form>
+</dialog>
+
+<template id="wheel-tpl">
+  <svg class="wheel" viewBox="0 0 320 320" role="img" aria-label="Volante y espiral de la Josserand oscilando a cámara lenta">
+    <g class="ticks"></g>
+    <g class="breathe" opacity=".8"><path class="spring" stroke-width=".9"/></g>
+    <g class="swing">
+      <circle class="rim" cx="160" cy="160" r="118" stroke-width="6"/>
+      <circle class="rim" cx="160" cy="160" r="106" stroke-width="1"/>
+      <g class="arm" stroke-width="3.5"><line x1="160" y1="160" x2="160" y2="44"/><line x1="160" y1="160" x2="260.5" y2="218"/><line x1="160" y1="160" x2="59.5" y2="218"/></g>
+      <circle class="hub" cx="160" cy="160" r="14" stroke-width="3"/>
+      <circle class="jewel" cx="160" cy="183" r="3.2"/>
+    </g>
+    <circle cx="160" cy="160" r="5" fill="#A3263A"/>
+  </svg>
+</template>
+
+<script>
+(() => {
+  document.documentElement.lang = "es-MX";
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const fmt = n => "$" + n.toLocaleString("en-US");
+  const track = (name, extra) => console.log("[funnel]", name, extra || "");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* ---- Films: pause control, reduced motion, play only when visible ---- */
+  $$("[data-film]").forEach(fig => {
+    const v = $("video", fig), btn = $("[data-toggle]", fig);
+    if (v.dataset.posterTall && matchMedia("(max-width: 760px)").matches) v.poster = v.dataset.posterTall;
+    let userPaused = false;
+    const sync = () => { btn.textContent = v.paused ? "Reproducir" : "Pausar"; };
+    btn.addEventListener("click", () => { if (v.paused) { userPaused = false; v.play().catch(() => {}); } else { userPaused = true; v.pause(); } sync(); });
+    v.addEventListener("play", sync); v.addEventListener("pause", sync);
+    if (reduce.matches) { v.pause(); userPaused = true; }
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !userPaused) { if (v.preload === "none") v.preload = "auto"; v.play().catch(() => {}); }
+      else if (!e.isIntersecting) v.pause();
+    }, { threshold: 0.25 }).observe(fig);
+    sync();
+  });
+
+  /* ---- Balance wheel ---- */
+  const host = $("[data-wheel]");
+  if (host) {
+  host.appendChild($("#wheel-tpl").content.cloneNode(true));
+  const svg = $(".wheel", host);
+  let d = "";
+  for (let t = 0; t <= 13 * 2 * Math.PI; t += 0.06) { const r = 14 + t * 0.59; d += (t ? "L" : "M") + (160 + r * Math.cos(t)).toFixed(2) + " " + (160 + r * Math.sin(t)).toFixed(2); }
+  $(".spring", svg).setAttribute("d", d);
+  for (let i = 0; i < 60; i++) {
+    const a = i * 6 * Math.PI / 180, r1 = 148, r2 = i % 5 ? 152 : 158;
+    const l = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    l.setAttribute("x1", 160 + r1 * Math.sin(a)); l.setAttribute("y1", 160 - r1 * Math.cos(a));
+    l.setAttribute("x2", 160 + r2 * Math.sin(a)); l.setAttribute("y2", 160 - r2 * Math.cos(a));
+    l.setAttribute("stroke-width", i % 5 ? 1 : 1.5); $(".ticks", svg).appendChild(l);
+  }
+  }
+
+  /* ---- Price scale ---- */
+  const parts = [
+    { n: "Costo de fabricación (reloj y estuche)", v: 2980, c: "var(--seg-1)", d: "Movimiento, caja de acero 316L, zafiros, carátula, correa, ensamblaje y el estuche de gamuza." },
+    { n: "Pagos", v: 205, c: "var(--seg-2)", d: "Comisiones por procesar tu pago." },
+    { n: "Logística y devoluciones", v: 308, c: "var(--seg-3)", d: "Envío con seguimiento y costo de las devoluciones." },
+    { n: "Margen Valmont", v: 2540, c: "var(--seg-4)", d: "Lo único que conserva Valmont: un solo margen, sin importador, mayorista ni tienda." },
+    { n: "IVA (16 %)", v: 966, c: "var(--seg-5)", d: "Impuesto al valor agregado, que se paga al fisco mexicano." },
+  ];
+  const TOTAL = 6999;
+  const ruler = (MAX, step) => {
+    let h = '<div class="ruler" aria-hidden="true">';
+    for (let v = 0; v <= MAX; v += 500) h += `<i class="${v % step ? "" : "major"}" style="left:${v / MAX * 100}%"></i>`;
+    for (let v = 0; v <= MAX; v += step) h += `<b style="left:${v / MAX * 100}%">${fmt(v)}</b>`;
+    return h + "</div>";
+  };
+  const bar = MAX => `<div class="bar" style="--w:${TOTAL / MAX}" aria-hidden="true">` +
+    parts.map((p, i) => `<span class="seg" data-i="${i}" style="--v:${p.v};--c:${p.c}" title="${p.n}: ${fmt(p.v)}"></span>`).join("") + "</div>";
+  $$("[data-scale]").forEach(el => {
+    const full = el.dataset.scale === "full", MAX = full ? 12000 : 7000, step = full ? 3000 : 1000;
+    el.innerHTML = `<div class="row"><div class="row-label"><span class="caps">Valmont, venta directa</span><span class="num">${fmt(TOTAL)} MXN</span></div>${bar(MAX)}</div>` +
+      (full ? `<div class="row"><div class="row-label"><span class="caps muted">Distribución tradicional, ×3 a ×4</span><span class="num muted">${fmt(8940)} a ${fmt(11920)}</span></div><div class="trad" aria-hidden="true"><span class="solid"></span><span class="range"></span></div></div>` : "") +
+      ruler(MAX, step);
+  });
+  const legend = $('[data-legend="full"]'), detail = $('[data-detail="full"]');
+  legend.innerHTML = parts.map((p, i) => `<li><button type="button" aria-pressed="false" data-i="${i}"><span class="sw" style="--c:${p.c}"></span><span>${p.n}</span><span class="amt">${fmt(p.v)}</span></button></li>`).join("");
+  function select(i) {
+    $$(".bar").forEach(b => { b.dataset.active = ""; $$(".seg", b).forEach(s => s.classList.toggle("on", +s.dataset.i === i)); });
+    $$("button", legend).forEach(b => b.setAttribute("aria-pressed", +b.dataset.i === i));
+    const p = parts[i];
+    detail.innerHTML = `<p class="big num">${fmt(p.v)}</p><p><span style="color:var(--fg)">${p.n}</span>, ${Math.round(p.v / TOTAL * 1000) / 10} % del precio. ${p.d}</p>`;
+  }
+  legend.addEventListener("click", e => { const b = e.target.closest("button"); if (b) select(+b.dataset.i); });
+  legend.addEventListener("focusin", e => { const b = e.target.closest("button"); if (b) select(+b.dataset.i); });
+  $$(".bar .seg").forEach(s => { s.addEventListener("mouseenter", () => select(+s.dataset.i)); s.addEventListener("click", () => select(+s.dataset.i)); });
+  select(3);
+
+  /* ---- Anatomy ---- */
+  const partBtns = $$(".parts button"), spots = $$(".spot");
+  const showPart = i => { partBtns.forEach(b => b.setAttribute("aria-expanded", +b.dataset.part === i)); spots.forEach(s => s.classList.toggle("on", +s.dataset.spot === i)); };
+  partBtns.forEach(b => ["click", "mouseenter", "focus"].forEach(ev => b.addEventListener(ev, () => showPart(+b.dataset.part))));
+  showPart(0);
+
+  /* ---- Wrist guide ---- */
+  const K = 3.2, CX = 170, CY = 98, art = $("#wrist-art"), range = $("#wrist");
+  function drawWrist() {
+    const cm = +range.value, w = cm * 10 / Math.PI, h = w * K, cd = 40 * K;
+    let s = `<rect class="band-shape" x="0" y="${CY - h / 2}" width="340" height="${h}" rx="${h / 2.6}"/><circle class="case" cx="${CX}" cy="${CY}" r="${cd / 2}"/>`;
+    for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6, r1 = cd / 2 - 9, r2 = cd / 2 - (i % 3 ? 4 : 2);
+      s += `<line class="dial-t" x1="${CX + r1 * Math.sin(a)}" y1="${CY - r1 * Math.cos(a)}" x2="${CX + r2 * Math.sin(a)}" y2="${CY - r2 * Math.cos(a)}" stroke-width="${i % 3 ? 1 : 1.6}"/>`; }
+    s += `<circle cx="${CX - 22}" cy="${CY + 4}" r="11" fill="none" stroke="var(--accent)" stroke-width="1"/>`;
+    s += `<line class="dim" x1="${CX - cd / 2}" y1="${CY + cd / 2 + 14}" x2="${CX + cd / 2}" y2="${CY + cd / 2 + 14}" stroke-width="1"/><text class="dim-t" x="${CX}" y="${CY + cd / 2 + 28}" text-anchor="middle">40 mm</text>`;
+    const y0 = 206;
+    s += `<g class="mm"><line x1="${CX - 30 * K}" y1="${y0 - 8}" x2="${CX + 30 * K}" y2="${y0 - 8}" stroke-width="1"/>`;
+    for (let m = -30; m <= 30; m += 5) s += `<line x1="${CX + m * K}" y1="${y0 - 8}" x2="${CX + m * K}" y2="${y0 - (m % 10 ? 4 : 1)}" stroke-width="1"/>`;
+    s += `<text x="${CX + 30 * K}" y="${y0 + 8}" text-anchor="end">60 mm</text></g>`;
+    art.innerHTML = s;
+    $("#wrist-val").textContent = cm.toLocaleString("es-MX") + " cm";
+    $("#wrist-read").innerHTML = `Ancho visible estimado de tu muñeca: <strong>${Math.round(w)} mm</strong>. La caja de 40 mm ocupa <strong>${Math.round(40 / w * 100)} %</strong> de ese ancho. Estimación a partir del contorno; la prueba con la cámara es más precisa.`;
+  }
+  range.addEventListener("input", drawWrist); drawWrist();
+
+  $$("[data-doc]").forEach(b => b.addEventListener("click", () => $("#doc-" + b.dataset.doc).showModal()));
+  $("#gift-toggle").addEventListener("change", e => { $("#gift-fields").hidden = !e.target.checked; });
+
+  /* ---- Demo modal + funnel events ---- */
+  const dlg = $("#demo");
+  document.addEventListener("click", e => {
+    const t = e.target.closest("[data-event]"); if (!t) return;
+    track(t.dataset.event);
+    if (t.hasAttribute("data-reserve")) dlg.showModal();
+    if (t.dataset.note) $("#" + t.dataset.note).textContent = "Demo: en el sitio real se abriría una conversación de WhatsApp con un asesor.";
+  });
+
+  /* ---- Router (#josserand = product page) ---- */
+  const brand = $("#brand-view"), landing = $("#landing-view"), sticky = $("#sticky");
+  let lastView = null;
+  function route() {
+    const h = location.hash.slice(1), isL = h === "josserand";
+    brand.hidden = isL; landing.hidden = !isL;
+    if (isL && lastView !== "l") { window.scrollTo(0, 0); $("#t-l").focus({ preventScroll: true }); track("view_item", "josserand"); }
+    if (!isL && lastView === "l") { const t = h && document.getElementById(h); if (t) t.scrollIntoView(); else window.scrollTo(0, 0); }
+    lastView = isL ? "l" : "b";
+  }
+  window.addEventListener("hashchange", route); route();
+  $(".skip").addEventListener("click", e => { e.preventDefault(); const m = landing.hidden ? $("#contenido") : $("#contenido-l"); m.focus(); m.scrollIntoView(); });
+  new IntersectionObserver(([en]) => {
+    const show = !en.isIntersecting && en.boundingClientRect.top < 0;
+    sticky.classList.toggle("show", show); document.body.classList.toggle("has-sticky", show && !landing.hidden);
+  }).observe($("#hero-ctas"));
+})();
+</script>
+<script type="module">
+import { mountAccount, mountViewer } from "./tryon/tryon.js";
+const track = name => console.log("[funnel]", name);
+mountViewer(document.getElementById("viewer-site"));
+mountAccount(document.getElementById("acc-site"), {
+  id: "acc-site", track,
+  onPrivacy: () => document.getElementById("doc-privacidad").showModal(),
+  onFallback: () => { const v = document.getElementById("viewer-site"); window.scrollTo({ top: 0, behavior: "smooth" }); v.focus({ preventScroll: true }); }
+});
+</script>
+</body>
+</html>
